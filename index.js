@@ -245,14 +245,30 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
 
 function get20s(arr) {
+    let names = [];
+    let split = arr.map(artist => artist["years"].split(' '));
 
+    split.forEach(years => years.splice(1, 1));
+    split.forEach(years => {
+        years[0] = Number(years[0]);
+        years[1] = Number(years[1])
+    });
+    for (let i = 0; i < split.length; i++) {
+        if (split[i][0] > 1900 && split[i][1] < 2000) {
+            names.push(arr[i].name);
+        }
+    }
+
+    return names;
 }
+
+console.log(get20s(artists));
 
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
  Use removeArtist to do the following:
- 1. Receive an array
+ 1. Receive an arrays
  2. Receive a number which is the desired index in the array
  3. The function should remove an artist from the array at the index
  4. Return the length of the remaining dataset.
