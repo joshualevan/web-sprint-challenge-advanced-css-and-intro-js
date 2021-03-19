@@ -352,7 +352,7 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML( /* Code here */ ) {
+function getHTML(data) {
 
     /* Code here */
 
@@ -362,11 +362,16 @@ function getHTML( /* Code here */ ) {
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
 Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
-function randomize( /* Code here */ ) {
-
-    /* Code here */
-
+function randomize(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
 }
+
+console.log(randomize(artists).length);
+
 
 
 /* 💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪
